@@ -8,6 +8,10 @@ export function sidebarStyle(styleContext: StyleContext): SerializedStyles {
     width: ${styleContext.sizes.width.sidebar};
     background-color: ${styleContext.shades.sidebarBackground};
 
+    .sidebar-separator {
+      border-top: 2px solid ${styleContext.shades.separation};
+    }
+
     .logo {
       height: 34px;
       width: 34px;
@@ -19,6 +23,9 @@ export function sidebarStyle(styleContext: StyleContext): SerializedStyles {
         display: flex;
         flex-direction: row;
         margin: auto 0;
+
+        align-items: center;
+        height: ${styleContext.sizes.height.navbar};
       }
 
       &-normal {

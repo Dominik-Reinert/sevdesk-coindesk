@@ -5,17 +5,9 @@ export const navbarStyle = (styleContext: StyleContext) => css`
   label: navbar;
 
   display: flex;
-  width: ${styleContext.sizes.width.content};
-  height: 100px;
+  width: 100%;
+  height: ${styleContext.sizes.height.navbar};
 
-
-  .page-name-wrapper {
-    display: flex;
-    flex: 12 6 200px;
-
-    height: 100%;
-    align-items: center;
-  }
 
   .link-wrapper {
     display: flex;
@@ -27,5 +19,4 @@ export const navbarStyle = (styleContext: StyleContext) => css`
 
     margin-top: 8px;
   }
-
 `;

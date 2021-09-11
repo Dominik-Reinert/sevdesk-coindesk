@@ -29,6 +29,9 @@ export interface StyleContext {
       content: string;
       sidebar: string;
     };
+    height: {
+      navbar: string;
+    };
   };
   padding: {};
 }
@@ -61,6 +64,9 @@ export const defaultStyles: StyleContext = {
     width: {
       content: "80%",
       sidebar: "20%",
+    },
+    height: {
+      navbar: "100px",
     },
   },
   padding: {},

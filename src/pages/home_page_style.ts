@@ -4,6 +4,7 @@ import { StyleContext } from "../style_context/style_context";
 export function homePageStyle(styleContext: StyleContext): SerializedStyles {
   return css`
     label: home-page;
+    height: calc(100% - ${styleContext.sizes.height.navbar});
 
     display: flex;
 
@@ -26,8 +27,8 @@ export function homePageStyle(styleContext: StyleContext): SerializedStyles {
 
 export function homePageSuspendingStyle(styleContext: StyleContext): SerializedStyles {
   return css`
-  label: home-page;
-  height: 80%;
+  label: home-page-suspending;
+  height: calc(100% - ${styleContext.sizes.height.navbar});
 
   .header {
     display: flex;

@@ -6,6 +6,7 @@ import { ClearStyles } from "./clear_styles/clear_styles";
 import "./i18n";
 import { Navbar } from "./navbar/navbar";
 import { HomePage } from "./pages/home_page";
+import { PageWrapper } from "./pages/page_wrapper";
 import { Routes } from "./routes/routes";
 import { Sidebar } from "./sidebar/sidebar";
 import { defaultStyles, styleContext } from "./style_context/style_context";
@@ -15,17 +16,19 @@ function App() {
     <styleContext.Provider value={defaultStyles}>
       <ClearStyles>
         <Background>
-          <Sidebar />
           <BrowserRouter>
-            <Navbar />
-            <Switch>
-              <Route path={Routes.home}>
-                <HomePage />
-              </Route>
-              <Route path="/">
-                <Redirect to={Routes.home} />
-              </Route>
-            </Switch>
+            <Sidebar />
+            <PageWrapper>
+              <Navbar />
+              <Switch>
+                <Route path={Routes.dashboard}>
+                  <HomePage />
+                </Route>
+                <Route path="/">
+                  <Redirect to={Routes.dashboard} />
+                </Route>
+              </Switch>
+            </PageWrapper>
           </BrowserRouter>
         </Background>
       </ClearStyles>

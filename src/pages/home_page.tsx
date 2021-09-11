@@ -29,7 +29,8 @@ const HomePageSuspending = () => {
     const [t] = useLanguageTranslation();
     return (
       <div css={homePageSuspendingStyle(styleContext)}>
-        <div className="scrollable-content"></div>
+        <div className="header">Bitcoin dashboard</div>
+        <div className="content"></div>
       </div>
     );
   };
