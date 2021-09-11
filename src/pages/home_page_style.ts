@@ -31,8 +31,8 @@ export function homePageSuspendingStyle(
   return css`
     label: home-page-suspending;
     height: calc(100% - ${styleContext.sizes.height.navbar});
-    background-color: blue;
-    
+    background-color: ${styleContext.shades.contentBackground};
+
     .header {
       display: flex;
       width: 70%;
@@ -54,9 +54,10 @@ export function homePageSuspendingStyle(
       }
     }
 
-    .scrollable-content {
+    .content {
       overflow-y: auto;
-      height: calc(100% - 60px);
+      display: flex;
+      flex-wrap: wrap;
     }
   `;
 }

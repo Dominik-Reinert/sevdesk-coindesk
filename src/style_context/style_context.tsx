@@ -8,9 +8,11 @@ export interface StyleContext {
     border: string;
     separation: string;
     boxShadow: string;
-    cardBackground: string;
     sidebarBackground: string;
     sidebarBackgroundSelected: string;
+    navbarBackground: string;
+    contentBackground: string;
+    cardBackground: string;
   };
   colors: {
     highlight: string;
@@ -44,9 +46,11 @@ export const defaultStyles: StyleContext = {
     border: "#808080",
     separation: "#a9aeb1",
     boxShadow: "#C0C0C0",
-    cardBackground: "#FAFAFA",
+    navbarBackground: "#FFFFFF",
+    contentBackground: "#EFEFEF",
     sidebarBackground: "#646b74",
     sidebarBackgroundSelected: "#7c7f87",
+    cardBackground: "#FFFFFF",
   },
   colors: {
     highlight: "#e4605b",

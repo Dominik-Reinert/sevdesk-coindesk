@@ -1,4 +1,5 @@
 import * as React from "react";
+import { IntlProvider } from "react-intl";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { Background } from "./background/background";
@@ -14,24 +15,26 @@ import { defaultStyles, styleContext } from "./style_context/style_context";
 function App() {
   return (
     <styleContext.Provider value={defaultStyles}>
-      <ClearStyles>
-        <Background>
-          <BrowserRouter>
-            <Sidebar />
-            <PageWrapper>
-              <Navbar />
-              <Switch>
-                <Route path={Routes.dashboard}>
-                  <HomePage />
-                </Route>
-                <Route path="/">
-                  <Redirect to={Routes.dashboard} />
-                </Route>
-              </Switch>
-            </PageWrapper>
-          </BrowserRouter>
-        </Background>
-      </ClearStyles>
+      <IntlProvider locale={navigator.language}>
+        <ClearStyles>
+          <Background>
+            <BrowserRouter>
+              <Sidebar />
+              <PageWrapper>
+                <Navbar />
+                <Switch>
+                  <Route path={Routes.dashboard}>
+                    <HomePage />
+                  </Route>
+                  <Route path="/">
+                    <Redirect to={Routes.dashboard} />
+                  </Route>
+                </Switch>
+              </PageWrapper>
+            </BrowserRouter>
+          </Background>
+        </ClearStyles>
+      </IntlProvider>
     </styleContext.Provider>
   );
 }

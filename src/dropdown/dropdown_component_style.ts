@@ -42,12 +42,12 @@ export function dropdownComponentStyle(
 
       &.selected {
         color: ${styleContext.shades.text};
-        background-color: ${styleContext.shades.cardBackground};
+        background-color: ${styleContext.shades.contentBackground};
       }
 
       &:hover {
         color: ${styleContext.shades.text};
-        background-color: ${styleContext.shades.cardBackground};
+        background-color: ${styleContext.shades.contentBackground};
       }
     }
   `;

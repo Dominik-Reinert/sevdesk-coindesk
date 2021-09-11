@@ -8,7 +8,7 @@ export function Background(props: React.PropsWithChildren<{}>): JSX.Element {
   const style = css`
     label: background;
     display: flex;
-    background-color: ${styleContext.shades.cardBackground};
+    background-color: ${styleContext.shades.contentBackground};
     height: 100%;
   `;
   return <div css={style}>{props.children}</div>;

@@ -10,6 +10,7 @@ export const navbarStyle = (styleContext: StyleContext) => css`
   height: ${styleContext.sizes.height.navbar};
 
   color: ${styleContext.shades.textDark};
+  background-color: ${styleContext.shades.navbarBackground};
 
   font-size: ${styleContext.sizes.font.subHeadline};
 

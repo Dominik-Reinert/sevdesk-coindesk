@@ -10,6 +10,8 @@ enum SupportedLanguages {
 interface LanguageResource {
   welcome: string;
   homeInstruction: string;
+  buy: string;
+  sell: string;
 }
 
 interface DefaultNamespaceWrapper {
@@ -23,14 +25,18 @@ type LanguageResources = {
 const resources: LanguageResources = {
   de: {
     translation: {
-      welcome: "Willkommen bei project template!",
+      welcome: "Willkommen bei coinDesk!",
       homeInstruction: "Bitte warten Sie, während die Daten geladen werden.",
+      buy: "Kaufen",
+      sell: "Verkaufen",
     },
   },
   en: {
     translation: {
-      welcome: "Welcome to project template!",
+      welcome: "Welcome to coinDesk!",
       homeInstruction: "Please wait while the data is being fetched.",
+      buy: "Buy",
+      sell: "Sell",
     },
   },
 };
