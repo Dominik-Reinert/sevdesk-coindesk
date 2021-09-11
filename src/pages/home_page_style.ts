@@ -58,6 +58,8 @@ export function homePageSuspendingStyle(
       overflow-y: auto;
       display: flex;
       flex-wrap: wrap;
+      overflow-y: auto;
+      height: 100%;
     }
   `;
 }
