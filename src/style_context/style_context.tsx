@@ -8,9 +8,11 @@ export interface StyleContext {
     border: string;
     separation: string;
     boxShadow: string;
+    cardBackground: string;
+    sidebarBackground: string;
+    sidebarBackgroundSelected: string;
   };
   colors: {
-    cardBackground: string;
     highlight: string;
     sevDeskDark: string;
     sevDeskLight: string;
@@ -25,6 +27,7 @@ export interface StyleContext {
     };
     width: {
       content: string;
+      sidebar: string;
     };
   };
   padding: {};
@@ -32,16 +35,18 @@ export interface StyleContext {
 
 export const defaultStyles: StyleContext = {
   shades: {
-    text: "#FAFAFA",
-    textDark: "#111111",
+    text: "#e7e7ea",
+    textDark: "#676767",
     selectedText: "#FFFFFF",
     border: "#808080",
-    separation: "#808080",
+    separation: "#a9aeb1",
     boxShadow: "#C0C0C0",
+    cardBackground: "#FAFAFA",
+    sidebarBackground: "#646b74",
+    sidebarBackgroundSelected: "#7c7f87",
   },
   colors: {
-    cardBackground: "#FAFAFA",
-    highlight: "#ff3554",
+    highlight: "##f35750",
     sevDeskDark: "#022a4a",
     sevDeskLight: "#0a84dd",
   },
@@ -54,7 +59,8 @@ export const defaultStyles: StyleContext = {
       smallText: "16px",
     },
     width: {
-      content: "70%",
+      content: "80%",
+      sidebar: "20%",
     },
   },
   padding: {},

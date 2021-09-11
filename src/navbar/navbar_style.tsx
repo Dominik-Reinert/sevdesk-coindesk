@@ -8,14 +8,6 @@ export const navbarStyle = (styleContext: StyleContext) => css`
   width: ${styleContext.sizes.width.content};
   height: 100px;
 
-  margin: auto;
-  padding: 12px 0;
-
-  .logo {
-    height: 34px;
-    width: 34px;
-    margin: 16px 16px 14px;
-  }
 
   .page-name-wrapper {
     display: flex;
@@ -36,17 +28,4 @@ export const navbarStyle = (styleContext: StyleContext) => css`
     margin-top: 8px;
   }
 
-  .page-name {
-    &-normal {
-      font-weight: normal;
-      font-size: ${styleContext.sizes.font.subHeadline};
-      color: ${styleContext.shades.textDark};
-    }
-
-    &-bold {
-      font-weight: bold;
-      font-size: ${styleContext.sizes.font.subHeadline};
-      color: ${styleContext.shades.textDark};
-    }
-  }
 `;

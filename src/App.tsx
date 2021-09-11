@@ -7,6 +7,7 @@ import "./i18n";
 import { Navbar } from "./navbar/navbar";
 import { HomePage } from "./pages/home_page";
 import { Routes } from "./routes/routes";
+import { Sidebar } from "./sidebar/sidebar";
 import { defaultStyles, styleContext } from "./style_context/style_context";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <styleContext.Provider value={defaultStyles}>
       <ClearStyles>
         <Background>
+          <Sidebar />
           <BrowserRouter>
             <Navbar />
             <Switch>
