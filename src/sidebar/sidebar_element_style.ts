@@ -11,13 +11,24 @@ export function sidebarElementStyle(
     cursor: pointer;
 
     color: ${styleContext.shades.text};
-    background-color: ${selected
-      ? styleContext.shades.sidebarBackgroundSelected
-      : "inherit"};
-    padding: 16px;
+
+    ${selected
+      ? `
+        background-color: ${styleContext.shades.sidebarBackgroundSelected};
+        padding: 16px 24px 16px 16px;
+        border-left: 8px solid ${styleContext.colors.highlight};  
+       `
+      : `
+      background-color: inherit;
+      padding: 16px 24px;
+    `}
 
     .sidebar-element-icon {
       font-family: "Font Awesome 5 Free";
+    }
+
+    .sidebar-element-name {
+      padding-left: 12px;
     }
   `;
 }

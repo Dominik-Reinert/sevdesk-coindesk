@@ -49,7 +49,7 @@ export const defaultStyles: StyleContext = {
     sidebarBackgroundSelected: "#7c7f87",
   },
   colors: {
-    highlight: "##f35750",
+    highlight: "#e4605b",
     sevDeskDark: "#022a4a",
     sevDeskLight: "#0a84dd",
   },
