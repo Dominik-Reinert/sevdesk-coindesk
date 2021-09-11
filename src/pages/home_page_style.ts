@@ -25,36 +25,38 @@ export function homePageStyle(styleContext: StyleContext): SerializedStyles {
   `;
 }
 
-export function homePageSuspendingStyle(styleContext: StyleContext): SerializedStyles {
+export function homePageSuspendingStyle(
+  styleContext: StyleContext
+): SerializedStyles {
   return css`
-  label: home-page-suspending;
-  height: calc(100% - ${styleContext.sizes.height.navbar});
-
-  .header {
-    display: flex;
-    width: 70%;
-    margin: auto;
-    align-content: center;
-    justify-content: space-around;
-    padding: 16px;
-    text-align: left;
-
-    > * {
-      flex: 1 0 0;
-      color: ${styleContext.shades.text};
-      font-size: ${styleContext.sizes.font.text};
-      text-align: center;
-    }
-
-    .name {
+    label: home-page-suspending;
+    height: calc(100% - ${styleContext.sizes.height.navbar});
+    background-color: blue;
+    
+    .header {
+      display: flex;
+      width: 70%;
+      margin: auto;
+      align-content: center;
+      justify-content: space-around;
+      padding: 16px;
       text-align: left;
+
+      > * {
+        flex: 1 0 0;
+        color: ${styleContext.shades.text};
+        font-size: ${styleContext.sizes.font.text};
+        text-align: center;
+      }
+
+      .name {
+        text-align: left;
+      }
     }
-  }
 
-  .scrollable-content {
-    overflow-y: auto;
-    height: calc(100% - 60px);
-  }
-`;
+    .scrollable-content {
+      overflow-y: auto;
+      height: calc(100% - 60px);
+    }
+  `;
 }
-

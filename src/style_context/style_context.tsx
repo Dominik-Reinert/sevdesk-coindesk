@@ -66,7 +66,7 @@ export const defaultStyles: StyleContext = {
       sidebar: "20%",
     },
     height: {
-      navbar: "100px",
+      navbar: "80px",
     },
   },
   padding: {},

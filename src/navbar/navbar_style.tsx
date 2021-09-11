@@ -5,18 +5,17 @@ export const navbarStyle = (styleContext: StyleContext) => css`
   label: navbar;
 
   display: flex;
+
   width: 100%;
   height: ${styleContext.sizes.height.navbar};
 
+  color: ${styleContext.shades.textDark};
 
-  .link-wrapper {
+  font-size: ${styleContext.sizes.font.subHeadline};
+
+  .page-name {
     display: flex;
-    flex: 1 2 300px;
-    font-size: ${styleContext.sizes.font.text};
-
-    height: 100%;
     align-items: center;
-
-    margin-top: 8px;
+    padding-left: 24px;
   }
 `;
