@@ -3,6 +3,7 @@ import * as React from "react";
 export interface StyleContext {
   shades: {
     text: string;
+    textDark: string;
     selectedText: string;
     border: string;
     separation: string;
@@ -11,6 +12,8 @@ export interface StyleContext {
   colors: {
     cardBackground: string;
     highlight: string;
+    sevDeskDark: string;
+    sevDeskLight: string;
   };
   sizes: {
     font: {
@@ -30,6 +33,7 @@ export interface StyleContext {
 export const defaultStyles: StyleContext = {
   shades: {
     text: "#FAFAFA",
+    textDark: "#111111",
     selectedText: "#FFFFFF",
     border: "#808080",
     separation: "#808080",
@@ -37,8 +41,10 @@ export const defaultStyles: StyleContext = {
   },
   colors: {
     cardBackground: "#FAFAFA",
-    highlight: "#ff3554",  
-  },  
+    highlight: "#ff3554",
+    sevDeskDark: "#022a4a",
+    sevDeskLight: "#0a84dd",
+  },
   sizes: {
     font: {
       welcome: "60px",

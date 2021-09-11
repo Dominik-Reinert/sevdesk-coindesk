@@ -11,6 +11,12 @@ export const navbarStyle = (styleContext: StyleContext) => css`
   margin: auto;
   padding: 12px 0;
 
+  .logo {
+    height: 34px;
+    width: 34px;
+    margin: 16px 16px 14px;
+  }
+
   .page-name-wrapper {
     display: flex;
     flex: 12 6 200px;
@@ -31,8 +37,16 @@ export const navbarStyle = (styleContext: StyleContext) => css`
   }
 
   .page-name {
-    font-size: ${styleContext.sizes.font.subHeadline};
-    margin: 16px 16px 14px;
-    color: ${styleContext.shades.text};
+    &-normal {
+      font-weight: normal;
+      font-size: ${styleContext.sizes.font.subHeadline};
+      color: ${styleContext.shades.textDark};
+    }
+
+    &-bold {
+      font-weight: bold;
+      font-size: ${styleContext.sizes.font.subHeadline};
+      color: ${styleContext.shades.textDark};
+    }
   }
 `;
