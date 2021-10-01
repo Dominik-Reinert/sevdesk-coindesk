@@ -29,6 +29,7 @@ function BitcoinDashboardPageFallback(): JSX.Element {
 const BitcoinDashboardPageSuspending = () => {
   const styleContext = useStyleContext();
   const data = bitcoinStore.getCurrentDataAdapted();
+  bitcoinStore.
   return (
     <div css={bitcoindashboardPageSuspendingStyle(styleContext)}>
       <div className="content">
