@@ -4,8 +4,12 @@ import React from "react";
 import { BitcoinCard } from "../card/bitcoin_card";
 import { useLanguageTranslation } from "../i18n";
 import { bitcoinStore } from "../store/bitcoin/bitcoin_store";
+import { useUpdatingAdaptedData } from "../store/use_updating_adapted_data";
 import { useStyleContext } from "../style_context/use_style_context";
-import { bitcoindashboardPageStyle, bitcoindashboardPageSuspendingStyle } from "./bitcoin_dashboard_page_style";
+import {
+  bitcoindashboardPageStyle,
+  bitcoindashboardPageSuspendingStyle,
+} from "./bitcoin_dashboard_page_style";
 
 export function BitcoinDashboardPage(): JSX.Element {
   return (
@@ -28,7 +32,7 @@ function BitcoinDashboardPageFallback(): JSX.Element {
 
 const BitcoinDashboardPageSuspending = () => {
   const styleContext = useStyleContext();
-  const data = bitcoinStore.getCurrentDataAdapted();
+  const [data] = useUpdatingAdaptedData(bitcoinStore);
   return (
     <div css={bitcoindashboardPageSuspendingStyle(styleContext)}>
       <div className="content">
