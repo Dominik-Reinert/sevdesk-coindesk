@@ -11,7 +11,7 @@ export function ToggleBitcoinDataRefresh(): JSX.Element {
   const checkboxId: string = "toggle-refresh-checkbox";
   const [shouldRefresh, onCheckboxToggled] = useCheckboxBitcoinRefresh()
   return (
-    <div>
+    <React.Fragment>
       <label htmlFor={checkboxId}>{t("toggleRefresh")}</label>
       <input
         id={checkboxId}
@@ -19,7 +19,7 @@ export function ToggleBitcoinDataRefresh(): JSX.Element {
         checked={shouldRefresh}
         onChange={onCheckboxToggled}
       />
-    </div>
+    </React.Fragment>
   );
 }
 

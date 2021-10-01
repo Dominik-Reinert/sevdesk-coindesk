@@ -15,7 +15,9 @@ export function Navbar(): JSX.Element {
       <div className="page-name">
         {routeToPageName[location.pathname as Routes]}
       </div>
-      <ToggleBitcoinDataRefresh />
+      <div className="refresh-toggle">
+        <ToggleBitcoinDataRefresh />
+      </div>
     </div>
   );
 }
