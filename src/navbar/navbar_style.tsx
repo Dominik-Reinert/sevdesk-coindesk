@@ -12,11 +12,20 @@ export const navbarStyle = (styleContext: StyleContext) => css`
   color: ${styleContext.shades.textDark};
   background-color: ${styleContext.shades.navbarBackground};
 
-  font-size: ${styleContext.sizes.font.subHeadline};
+  justify-content: space-between;
 
   .page-name {
+    font-size: ${styleContext.sizes.font.subHeadline};
+    padding-left: 24px;
+  }
+
+  .refresh-toggle {
+    font-size: ${styleContext.sizes.font.text};
+    padding-right: 24px;
+  }
+
+  > * {
     display: flex;
     align-items: center;
-    padding-left: 24px;
   }
 `;
