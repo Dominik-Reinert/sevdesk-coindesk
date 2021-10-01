@@ -28,7 +28,6 @@ function HomePageFallback(): JSX.Element {
 
 const HomePageSuspending = () => {
   const styleContext = useStyleContext();
-  const [t] = useLanguageTranslation();
   const data = bitcoinStore.getCurrentDataAdapted();
   return (
     <div css={homePageSuspendingStyle(styleContext)}>

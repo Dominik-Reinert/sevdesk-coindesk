@@ -1,12 +1,16 @@
 import * as React from "react";
 import { bitcoinStore } from "./bitcoin_store";
 
-export function useBitcoinRefresh(
-  interval: number
-): [startRefreshing: () => void, stopRefreshing: () => void] {
+type BitcoinRefreshApi = [
+  shouldRefresh: boolean,
+  startRefreshing: () => void,
+  stopRefreshing: () => void
+];
+
+export function useBitcoinRefresh(interval: number): BitcoinRefreshApi {
   const [shouldRefresh, ...refreshApi] = useBitcoinRefreshState();
   useBitcoinRefreshIntervalStartingFirstRender(interval, shouldRefresh);
-  return refreshApi;
+  return [shouldRefresh, ...refreshApi];
 }
 
 function useBitcoinRefreshIntervalStartingFirstRender(
@@ -20,25 +24,15 @@ function useBitcoinRefreshIntervalStartingFirstRender(
       }
     }, interval);
 
-    return clearInterval(intervalId);
-  }, []);
+    return () => clearInterval(intervalId);
+  }, [interval, shouldRefresh]);
 }
 
-function useBitcoinRefreshState(): [
-  shouldRefresh: boolean,
-  startRefreshing: () => void,
-  stopRefreshing: () => void
-] {
+function useBitcoinRefreshState(): BitcoinRefreshApi {
   const [shouldRefresh, setShouldRefresh] = React.useState(true);
 
-  const startRefreshing = React.useCallback(
-    () => setShouldRefresh(true),
-    [shouldRefresh]
-  );
-  const stopRefreshing = React.useCallback(
-    () => setShouldRefresh(false),
-    [shouldRefresh]
-  );
+  const startRefreshing = React.useCallback(() => setShouldRefresh(true), []);
+  const stopRefreshing = React.useCallback(() => setShouldRefresh(false), []);
 
   return [shouldRefresh, startRefreshing, stopRefreshing];
 }

@@ -12,6 +12,7 @@ interface LanguageResource {
   homeInstruction: string;
   buy: string;
   sell: string;
+  toggleRefresh: string;
 }
 
 interface DefaultNamespaceWrapper {
@@ -29,6 +30,7 @@ const resources: LanguageResources = {
       homeInstruction: "Bitte warten Sie, während die Daten geladen werden.",
       buy: "Kaufen",
       sell: "Verkaufen",
+      toggleRefresh: "Alle 500ms erneuern",
     },
   },
   en: {
@@ -37,6 +39,7 @@ const resources: LanguageResources = {
       homeInstruction: "Please wait while the data is being fetched.",
       buy: "Buy",
       sell: "Sell",
+      toggleRefresh: "Refresh every 500ms",
     },
   },
 };
