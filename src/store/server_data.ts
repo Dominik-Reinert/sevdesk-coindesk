@@ -16,7 +16,7 @@ export class ServerData<ServerResponse extends {}> {
     this.wrapFetch();
   }
 
-  private async wrapFetch(force: boolean = false): Promise<void> {
+  private wrapFetch(force: boolean = false): void {
     if (!this.response || force) {
       this.fetchPromise = this.config.fetch().then(
         (result) => this.onFetchPromiseResult(result),
@@ -37,5 +37,11 @@ export class ServerData<ServerResponse extends {}> {
       throw this.fetchPromise;
     }
     return this.response ?? ({} as ServerResponse);
+  }
+
+  public refresh(): void {
+    this.fetchError = undefined;
+    this.fetchPromise = undefined;
+    this.wrapFetch(true);
   }
 }
