@@ -9,7 +9,7 @@ enum SupportedLanguages {
 
 interface LanguageResource {
   welcome: string;
-  homeInstruction: string;
+  bitcoindashboardInstruction: string;
   buy: string;
   sell: string;
   toggleRefresh: string;
@@ -27,7 +27,8 @@ const resources: LanguageResources = {
   de: {
     translation: {
       welcome: "Willkommen bei coinDesk!",
-      homeInstruction: "Bitte warten Sie, während die Daten geladen werden.",
+      bitcoindashboardInstruction:
+        "Bitte warten Sie, während die Daten geladen werden.",
       buy: "Kaufen",
       sell: "Verkaufen",
       toggleRefresh: "Alle 500ms erneuern",
@@ -36,7 +37,8 @@ const resources: LanguageResources = {
   en: {
     translation: {
       welcome: "Welcome to coinDesk!",
-      homeInstruction: "Please wait while the data is being fetched.",
+      bitcoindashboardInstruction:
+        "Please wait while the data is being fetched.",
       buy: "Buy",
       sell: "Sell",
       toggleRefresh: "Refresh every 500ms",

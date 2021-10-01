@@ -3,7 +3,7 @@ export enum Routes {
 }
 
 export const routeToIcon: { [key in Routes]: string } = {
-  [Routes.dashboard]: "fas fa-tachometer-alt",
+  [Routes.dashboard]: "fas fa-tacbitcoindashboardter-alt",
 };
 
 export const routeToPageName: { [key in Routes]: string } = {
