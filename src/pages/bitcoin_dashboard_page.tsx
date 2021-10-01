@@ -4,7 +4,7 @@ import React from "react";
 import { BitcoinCard } from "../card/bitcoin_card";
 import { useLanguageTranslation } from "../i18n";
 import { bitcoinStore } from "../store/bitcoin/bitcoin_store";
-import { useServerDataUpdate } from "../store/user_server_data_updates";
+import { useServerDataUpdate } from "../store/use_server_data_updates";
 import { useStyleContext } from "../style_context/use_style_context";
 import {
   bitcoindashboardPageStyle,
