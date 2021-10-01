@@ -13,6 +13,10 @@ export abstract class AbstractStore<Data extends {}, AdaptedData extends {}> {
     this.currentData = producer(this.currentData);
   }
 
+  public getCurrentData(): Data {
+    return this.currentData;
+  }
+
   public getCurrentDataAdapted(): AdaptedData {
     return this.adaptData(this.currentData);
   }
