@@ -31,7 +31,7 @@ const resources: LanguageResources = {
         "Bitte warten Sie, während die Daten geladen werden.",
       buy: "Kaufen",
       sell: "Verkaufen",
-      toggleRefresh: "Alle 500ms erneuern",
+      toggleRefresh: "Alle 2000ms erneuern",
     },
   },
   en: {
@@ -41,7 +41,7 @@ const resources: LanguageResources = {
         "Please wait while the data is being fetched.",
       buy: "Buy",
       sell: "Sell",
-      toggleRefresh: "Refresh every 500ms",
+      toggleRefresh: "Refresh every 2000ms",
     },
   },
 };

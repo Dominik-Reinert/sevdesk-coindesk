@@ -9,8 +9,10 @@ export function useUpdatingAdaptedData<D, AD>(
   );
   const updateCurrentData = React.useCallback(() => {
     setCurrentData(store.getCurrentDataAdapted());
-  }, [setCurrentData]);
-  store.registerOnUpdateCallback(updateCurrentData);
-  React.useEffect(() => () => store.removeOnUpdateCallback(updateCurrentData));
+  }, [setCurrentData, store]);
+  React.useEffect(() => {
+    store.registerOnUpdateCallback(updateCurrentData);
+    return () => store.removeOnUpdateCallback(updateCurrentData);
+  }, [store, updateCurrentData]);
   return [currentData];
 }

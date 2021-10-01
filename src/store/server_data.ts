@@ -1,5 +1,11 @@
+import EventEmitter from "eventemitter3";
+
 interface ServerDataConfig<ServerResponse extends {}> {
   fetch: () => Promise<ServerResponse>;
+}
+
+enum ServerDataUpdateEmitter {
+  UPDATED = "UPDATED",
 }
 
 /**
@@ -11,6 +17,7 @@ export class ServerData<ServerResponse extends {}> {
   private response: ServerResponse | undefined;
   private fetchPromise: Promise<ServerResponse> | undefined;
   private fetchError: Promise<any> | undefined;
+  private updateEmitter: EventEmitter<ServerDataUpdateEmitter> = new EventEmitter();
 
   constructor(private readonly config: ServerDataConfig<ServerResponse>) {
     this.wrapFetch();
@@ -28,6 +35,7 @@ export class ServerData<ServerResponse extends {}> {
   private onFetchPromiseResult(result: ServerResponse): void {
     this.response = result;
     this.fetchPromise = undefined;
+    this.updateEmitter.emit(ServerDataUpdateEmitter.UPDATED);
   }
 
   public get(): ServerResponse {
@@ -43,5 +51,13 @@ export class ServerData<ServerResponse extends {}> {
     this.fetchError = undefined;
     this.fetchPromise = undefined;
     this.wrapFetch(true);
+  }
+
+  public registerOnUpdateCallback(callback: () => void): void {
+    this.updateEmitter.on(ServerDataUpdateEmitter.UPDATED, callback);
+  }
+
+  public removeOnUpdateCallback(callback: () => void): void {
+    this.updateEmitter.off(ServerDataUpdateEmitter.UPDATED, callback);
   }
 }

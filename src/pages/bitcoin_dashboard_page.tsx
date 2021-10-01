@@ -4,7 +4,7 @@ import React from "react";
 import { BitcoinCard } from "../card/bitcoin_card";
 import { useLanguageTranslation } from "../i18n";
 import { bitcoinStore } from "../store/bitcoin/bitcoin_store";
-import { useUpdatingAdaptedData } from "../store/use_updating_adapted_data";
+import { useServerDataUpdate } from "../store/user_server_data_updates";
 import { useStyleContext } from "../style_context/use_style_context";
 import {
   bitcoindashboardPageStyle,
@@ -32,11 +32,18 @@ function BitcoinDashboardPageFallback(): JSX.Element {
 
 const BitcoinDashboardPageSuspending = () => {
   const styleContext = useStyleContext();
-  const [data] = useUpdatingAdaptedData(bitcoinStore);
+  const [currentData, setCurrentData] = React.useState(
+    bitcoinStore.getCurrentDataAdapted()
+  );
+  const updateCurrentData = React.useCallback(
+    () => setCurrentData(bitcoinStore.getCurrentDataAdapted()),
+    [setCurrentData, bitcoinStore]
+  );
+  useServerDataUpdate(bitcoinStore.getCurrentData(), updateCurrentData);
   return (
     <div css={bitcoindashboardPageSuspendingStyle(styleContext)}>
       <div className="content">
-        {data.exchangeRates.map(({ symbol, buy, sell }) => (
+        {currentData.exchangeRates.map(({ symbol, buy, sell }) => (
           <BitcoinCard key={symbol} symbol={symbol} buy={buy} sell={sell} />
         ))}
       </div>
