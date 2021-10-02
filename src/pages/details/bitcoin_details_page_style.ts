@@ -14,16 +14,6 @@ export function bitcoinDetailsPageStyle(
     flex-direction: column;
     width: 70%;
     text-align: center;
-
-    .welcome {
-      font-size: ${styleContext.sizes.font.welcome};
-      color: ${styleContext.shades.text};
-    }
-
-    .instruction {
-      font-size: ${styleContext.sizes.font.headline};
-      color: ${styleContext.shades.text};
-    }
   `;
 }
 
