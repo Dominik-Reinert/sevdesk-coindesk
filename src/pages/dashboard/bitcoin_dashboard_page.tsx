@@ -1,32 +1,18 @@
 /**@jsx jsx */
 import { jsx } from "@emotion/react";
 import React from "react";
-import { BitcoinCard } from "../card/bitcoin_card";
-import { useLanguageTranslation } from "../i18n";
-import { bitcoinStore } from "../store/bitcoin/bitcoin_store";
-import { useServerDataUpdate } from "../store/use_server_data_updates";
-import { useStyleContext } from "../style_context/use_style_context";
-import {
-  bitcoindashboardPageStyle,
-  bitcoindashboardPageSuspendingStyle,
-} from "./bitcoin_dashboard_page_style";
+import { BitcoinCard } from "../../card/bitcoin_card";
+import { bitcoinStore } from "../../store/bitcoin/bitcoin_store";
+import { useServerDataUpdate } from "../../store/use_server_data_updates";
+import { useStyleContext } from "../../style_context/use_style_context";
+import { WaitForDataFallbackPage } from "../wait_for_data_fallback_page";
+import { bitcoindashboardPageSuspendingStyle } from "./bitcoin_dashboard_page_style";
 
 export function BitcoinDashboardPage(): JSX.Element {
   return (
-    <React.Suspense fallback={<BitcoinDashboardPageFallback />}>
+    <React.Suspense fallback={<WaitForDataFallbackPage />}>
       <BitcoinDashboardPageSuspending />
     </React.Suspense>
-  );
-}
-
-function BitcoinDashboardPageFallback(): JSX.Element {
-  const [t] = useLanguageTranslation();
-  const styleContext = useStyleContext();
-  return (
-    <div css={bitcoindashboardPageStyle(styleContext)}>
-      <span className="welcome">{t("welcome")}</span>
-      <span className="instruction">{t("bitcoindashboardInstruction")}</span>
-    </div>
   );
 }
 

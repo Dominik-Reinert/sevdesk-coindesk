@@ -1,9 +1,9 @@
 import { css, SerializedStyles } from "@emotion/react";
-import { StyleContext } from "../style_context/style_context";
+import { StyleContext } from "../../style_context/style_context";
 
-export function bitcoindashboardPageStyle(styleContext: StyleContext): SerializedStyles {
+export function bitcoinDetailsPageStyle(styleContext: StyleContext): SerializedStyles {
   return css`
-    label: bitcoindashboard-page;
+    label: bitcoinDetails-page;
     height: calc(100% - ${styleContext.sizes.height.navbar});
 
     display: flex;
@@ -25,11 +25,11 @@ export function bitcoindashboardPageStyle(styleContext: StyleContext): Serialize
   `;
 }
 
-export function bitcoindashboardPageSuspendingStyle(
+export function bitcoinDetailsPageSuspendingStyle(
   styleContext: StyleContext
 ): SerializedStyles {
   return css`
-    label: bitcoindashboard-page-suspending;
+    label: bitcoinDetails-page-suspending;
     height: calc(100% - ${styleContext.sizes.height.navbar});
     background-color: ${styleContext.shades.contentBackground};
 
