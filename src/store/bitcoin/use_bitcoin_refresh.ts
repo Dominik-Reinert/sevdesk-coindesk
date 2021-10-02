@@ -21,6 +21,7 @@ function useBitcoinRefreshIntervalStartingFirstRender(
     const intervalId = setInterval(() => {
       if (shouldRefresh) {
         bitcoinStore.getCurrentData().exchangeRates.refresh();
+        bitcoinStore.getCurrentData().details.refresh();
       }
     }, interval);
 

@@ -1,7 +1,9 @@
 import { css, SerializedStyles } from "@emotion/react";
 import { StyleContext } from "../../style_context/style_context";
 
-export function bitcoinDetailsPageStyle(styleContext: StyleContext): SerializedStyles {
+export function bitcoinDetailsPageStyle(
+  styleContext: StyleContext
+): SerializedStyles {
   return css`
     label: bitcoinDetails-page;
     height: calc(100% - ${styleContext.sizes.height.navbar});
@@ -55,11 +57,20 @@ export function bitcoinDetailsPageSuspendingStyle(
     }
 
     .content {
-      overflow-y: auto;
       display: flex;
+      flex-direction: column;
       flex-wrap: wrap;
       overflow-y: auto;
-      height: 100%;
+
+      .detail {
+        display: flex;
+
+        font-size: ${styleContext.sizes.font.text};
+
+        &-label {
+          flex: 0 0 400px;
+        }
+      }
     }
   `;
 }

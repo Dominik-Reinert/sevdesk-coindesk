@@ -23,7 +23,7 @@ const BitcoinDashboardPageSuspending = () => {
   );
   const updateCurrentData = React.useCallback(
     () => setCurrentData(bitcoinStore.getCurrentDataAdapted()),
-    [setCurrentData, bitcoinStore]
+    [setCurrentData]
   );
   useServerDataUpdate(bitcoinStore.getCurrentData().exchangeRates, updateCurrentData);
   return (

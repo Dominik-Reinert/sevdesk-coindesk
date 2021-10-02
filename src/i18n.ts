@@ -13,6 +13,12 @@ interface LanguageResource {
   buy: string;
   sell: string;
   toggleRefresh: string;
+  detailsCap: string;
+  detailsTotal: string;
+  detailsCount: string;
+  detailsSent: string;
+  detailsHash: string;
+  detailsDifficulty: string;
 }
 
 interface DefaultNamespaceWrapper {
@@ -32,6 +38,12 @@ const resources: LanguageResources = {
       buy: "Kaufen",
       sell: "Verkaufen",
       toggleRefresh: "Alle 2000ms erneuern",
+      detailsCap: "Marktkapitalisierung",
+      detailsTotal: "Anzahl aller Bitcoins",
+      detailsCount: "Anzahl der Transaktionen in den letzten 24h",
+      detailsSent: "Anzahl gesendeter BTC  der letzten 24h",
+      detailsHash: "Aktuelle Hashrate",
+      detailsDifficulty: "Aktuelle Schwierigkeit",
     },
   },
   en: {
@@ -41,6 +53,12 @@ const resources: LanguageResources = {
       buy: "Buy",
       sell: "Sell",
       toggleRefresh: "Refresh every 2000ms",
+      detailsCap: "Market capitalization",
+      detailsTotal: "Number of Bitcoins",
+      detailsCount: "Number of Transactions during the last 24h",
+      detailsSent: "Number of sent BTC during the last 24h",
+      detailsHash: "Current hashrate",
+      detailsDifficulty: "Current difficulty",
     },
   },
 };

@@ -3,7 +3,7 @@ import { ServerData } from "../server_data";
 import { Bitcoin } from "./server_interfaces";
 
 interface Details {
-  marketCap: number;
+  marketCap: string;
   totalBc: number;
   dayTransactionCount: number;
   dayBtcSent: number;
@@ -57,7 +57,7 @@ class BitcoinStore extends AbstractStore<BitcoinData, AdaptedBitcoinData> {
       dayTransactionCount: details.estimated_transaction_volume_usd,
       getDifficulty: details.difficulty,
       hashRate: details.hash_rate,
-      marketCap: details.market_price_usd,
+      marketCap: "?",
       totalBc: details.totalbc,
     };
   }
