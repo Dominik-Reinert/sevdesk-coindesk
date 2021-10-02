@@ -25,7 +25,7 @@ const BitcoinDashboardPageSuspending = () => {
     () => setCurrentData(bitcoinStore.getCurrentDataAdapted()),
     [setCurrentData, bitcoinStore]
   );
-  useServerDataUpdate(bitcoinStore.getCurrentData(), updateCurrentData);
+  useServerDataUpdate(bitcoinStore.getCurrentData().exchangeRates, updateCurrentData);
   return (
     <div css={bitcoindashboardPageSuspendingStyle(styleContext)}>
       <div className="content">

@@ -20,7 +20,7 @@ function useBitcoinRefreshIntervalStartingFirstRender(
   React.useEffect(() => {
     const intervalId = setInterval(() => {
       if (shouldRefresh) {
-        bitcoinStore.getCurrentData().refresh();
+        bitcoinStore.getCurrentData().exchangeRates.refresh();
       }
     }, interval);
 
@@ -29,7 +29,7 @@ function useBitcoinRefreshIntervalStartingFirstRender(
 }
 
 function useBitcoinRefreshState(): BitcoinRefreshApi {
-  const [shouldRefresh, setShouldRefresh] = React.useState(true);
+  const [shouldRefresh, setShouldRefresh] = React.useState(false);
 
   const startRefreshing = React.useCallback(() => setShouldRefresh(true), []);
   const stopRefreshing = React.useCallback(() => setShouldRefresh(false), []);
