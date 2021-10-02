@@ -6,7 +6,8 @@ import { Background } from "./background/background";
 import { ClearStyles } from "./clear_styles/clear_styles";
 import "./i18n";
 import { Navbar } from "./navbar/navbar";
-import { BitcoinDashboardPage } from "./pages/bitcoin_dashboard_page";
+import { BitcoinDashboardPage } from "./pages/dashboard/bitcoin_dashboard_page";
+import { BitcoinDetailsPage } from "./pages/details/bitcoin_details_page";
 import { PageWrapper } from "./pages/page_wrapper";
 import { Routes } from "./routes/routes";
 import { Sidebar } from "./sidebar/sidebar";
@@ -23,6 +24,9 @@ function App() {
               <PageWrapper>
                 <Navbar />
                 <Switch>
+                  <Route path={Routes.details}>
+                    <BitcoinDetailsPage />
+                  </Route>
                   <Route path={Routes.dashboard}>
                     <BitcoinDashboardPage />
                   </Route>

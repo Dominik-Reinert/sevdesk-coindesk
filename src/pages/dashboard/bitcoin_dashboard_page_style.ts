@@ -1,29 +1,5 @@
 import { css, SerializedStyles } from "@emotion/react";
-import { StyleContext } from "../style_context/style_context";
-
-export function bitcoindashboardPageStyle(styleContext: StyleContext): SerializedStyles {
-  return css`
-    label: bitcoindashboard-page;
-    height: calc(100% - ${styleContext.sizes.height.navbar});
-
-    display: flex;
-
-    margin: 80px auto;
-    flex-direction: column;
-    width: 70%;
-    text-align: center;
-
-    .welcome {
-      font-size: ${styleContext.sizes.font.welcome};
-      color: ${styleContext.shades.text};
-    }
-
-    .instruction {
-      font-size: ${styleContext.sizes.font.headline};
-      color: ${styleContext.shades.text};
-    }
-  `;
-}
+import { StyleContext } from "../../style_context/style_context";
 
 export function bitcoindashboardPageSuspendingStyle(
   styleContext: StyleContext
@@ -58,7 +34,6 @@ export function bitcoindashboardPageSuspendingStyle(
       overflow-y: auto;
       display: flex;
       flex-wrap: wrap;
-      overflow-y: auto;
       height: 100%;
     }
   `;
