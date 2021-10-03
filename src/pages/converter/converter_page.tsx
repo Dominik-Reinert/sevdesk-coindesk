@@ -6,6 +6,7 @@ import { useServerDataUpdate } from "../../store/use_server_data_updates";
 import { useStyleContext } from "../../style_context/use_style_context";
 import { WaitForDataFallbackPage } from "../wait_for_data_fallback_page";
 import { converterPageSuspendingStyle } from "./converter_page_style";
+import { useBitcoinBaseValue } from "./use_bitcoin_base_value";
 
 export function ConverterPage(): JSX.Element {
   return (
@@ -17,25 +18,7 @@ export function ConverterPage(): JSX.Element {
 
 const ConverterPageSuspending = () => {
   const styleContext = useStyleContext();
-  const [currentData, setCurrentData] = React.useState(
-    bitcoinStore.getCurrentDataAdapted()
-  );
-  const updateCurrentData = React.useCallback(
-    () => setCurrentData(bitcoinStore.getCurrentDataAdapted()),
-    [setCurrentData]
-  );
-  useServerDataUpdate(bitcoinStore.getCurrentData().details, updateCurrentData);
-
-  const [currentBtcValue, setCurrentBtcValue] = React.useState(0);
-  const onChange = React.useCallback(
-    (newValue: string, symbol: string) => {
-      const exchangeRate = currentData.exchangeRates.find(
-        (rate) => rate.symbol === symbol
-      );
-      setCurrentBtcValue(Number(newValue) * (exchangeRate?.buy ?? 0));
-    },
-    [currentData, setCurrentBtcValue]
-  );
+  const [currentBtcValue, onChange] = useBitcoinBaseValue();
   const symbolsToRender = ["EUR", "USD", "AUD", "NZD", "GBP"];
   return (
     <div css={converterPageSuspendingStyle(styleContext)}>
