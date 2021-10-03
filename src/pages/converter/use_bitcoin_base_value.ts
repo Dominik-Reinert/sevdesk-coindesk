@@ -3,7 +3,8 @@ import { useUpdatingBitcoinStoreData } from "../../store/bitcoin/use_updating_bi
 
 export function useBitcoinBaseValue(): [
   currentBitcoinValue: number,
-  onChange: (newValue: string, symbol: string) => void
+  onChange: (newValue: string, symbol: string) => void,
+  onSetBtcValue: (newValue: string) => void
 ] {
   const [currentData] = useUpdatingBitcoinStoreData();
   const [currentBtcValue, setCurrentBtcValue] = React.useState(0);
@@ -12,9 +13,15 @@ export function useBitcoinBaseValue(): [
       const exchangeRate = currentData.exchangeRates.find(
         (rate) => rate.symbol === symbol
       );
-      setCurrentBtcValue(Number(newValue) * (exchangeRate?.buy ?? 0));
+      setCurrentBtcValue(Number(newValue) / (exchangeRate?.buy ?? 0));
     },
     [currentData, setCurrentBtcValue]
   );
-  return [currentBtcValue, onChange];
+  const onSetBtcValue = React.useCallback(
+    (newValue: string) => {
+      setCurrentBtcValue(Number(newValue));
+    },
+    [setCurrentBtcValue]
+  );
+  return [currentBtcValue, onChange, onSetBtcValue];
 }

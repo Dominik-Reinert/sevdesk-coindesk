@@ -17,11 +17,12 @@ export function ConverterPage(): JSX.Element {
 
 const ConverterPageSuspending = () => {
   const styleContext = useStyleContext();
-  const [currentBtcValue, onChange] = useBitcoinBaseValue();
+  const [currentBtcValue, onChange, onSetBtcValue] = useBitcoinBaseValue();
   const symbolsToRender = ["EUR", "USD", "AUD", "NZD", "GBP"];
   return (
     <div css={converterPageSuspendingStyle(styleContext)}>
       <div className="content">
+        <BitcoinRate btcValue={currentBtcValue} onChange={onSetBtcValue} />
         {symbolsToRender.map((toRender) => (
           <ExchangeRate
             key={toRender}
@@ -34,6 +35,31 @@ const ConverterPageSuspending = () => {
     </div>
   );
 };
+
+function BitcoinRate(props: {
+  btcValue: number;
+  onChange: (newValue: string) => void;
+}): JSX.Element {
+  const { btcValue, onChange } = props;
+  const inputId = "exchange-rate-btc";
+  const handleChange = React.useCallback(
+    (evt) => onChange(evt.target.value),
+    [onChange]
+  );
+  return (
+    <div className="exchange-rate">
+      <label htmlFor={inputId} className="exchange-rate-symbol">
+        BTC:
+      </label>
+      <input
+        id={inputId}
+        type="number"
+        value={btcValue}
+        onChange={handleChange}
+      />
+    </div>
+  );
+}
 
 function ExchangeRate(props: {
   symbol: string;
@@ -59,7 +85,7 @@ function ExchangeRate(props: {
       <input
         id={inputId}
         type="number"
-        value={btcValue / exchangeRate.buy}
+        value={btcValue * exchangeRate.buy}
         onChange={handleChange}
       />
     </div>
