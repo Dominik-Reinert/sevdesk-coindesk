@@ -23,7 +23,7 @@ interface BitcoinData {
   exchangeRates: ServerData<Bitcoin.ExchangeRatesRoot>;
 }
 
-interface AdaptedBitcoinData {
+export interface AdaptedBitcoinData {
   details: Details;
   exchangeRates: ExchangeRate[];
 }

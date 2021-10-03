@@ -3,6 +3,7 @@ import { jsx } from "@emotion/react";
 import React from "react";
 import { useLanguageTranslation } from "../../i18n";
 import { bitcoinStore } from "../../store/bitcoin/bitcoin_store";
+import { useUpdatingBitcoinStoreData } from "../../store/bitcoin/use_updating_bitcoin_store_data";
 import { useServerDataUpdate } from "../../store/use_server_data_updates";
 import { useStyleContext } from "../../style_context/use_style_context";
 import { WaitForDataFallbackPage } from "../wait_for_data_fallback_page";
@@ -19,14 +20,7 @@ export function BitcoinDetailsPage(): JSX.Element {
 const BitcoinDetailsPageSuspending = () => {
   const styleContext = useStyleContext();
   const [t] = useLanguageTranslation();
-  const [currentData, setCurrentData] = React.useState(
-    bitcoinStore.getCurrentDataAdapted()
-  );
-  const updateCurrentData = React.useCallback(
-    () => setCurrentData(bitcoinStore.getCurrentDataAdapted()),
-    [setCurrentData]
-  );
-  useServerDataUpdate(bitcoinStore.getCurrentData().details, updateCurrentData);
+  const [currentData] = useUpdatingBitcoinStoreData();
   return (
     <div css={bitcoinDetailsPageSuspendingStyle(styleContext)}>
       <div className="content">

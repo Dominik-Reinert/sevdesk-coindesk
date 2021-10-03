@@ -2,8 +2,7 @@
 import { jsx } from "@emotion/react";
 import React from "react";
 import { BitcoinCard } from "../../card/bitcoin_card";
-import { bitcoinStore } from "../../store/bitcoin/bitcoin_store";
-import { useServerDataUpdate } from "../../store/use_server_data_updates";
+import { useUpdatingBitcoinStoreData } from "../../store/bitcoin/use_updating_bitcoin_store_data";
 import { useStyleContext } from "../../style_context/use_style_context";
 import { WaitForDataFallbackPage } from "../wait_for_data_fallback_page";
 import { bitcoindashboardPageSuspendingStyle } from "./bitcoin_dashboard_page_style";
@@ -18,14 +17,7 @@ export function BitcoinDashboardPage(): JSX.Element {
 
 const BitcoinDashboardPageSuspending = () => {
   const styleContext = useStyleContext();
-  const [currentData, setCurrentData] = React.useState(
-    bitcoinStore.getCurrentDataAdapted()
-  );
-  const updateCurrentData = React.useCallback(
-    () => setCurrentData(bitcoinStore.getCurrentDataAdapted()),
-    [setCurrentData]
-  );
-  useServerDataUpdate(bitcoinStore.getCurrentData().exchangeRates, updateCurrentData);
+  const [currentData] = useUpdatingBitcoinStoreData();
   return (
     <div css={bitcoindashboardPageSuspendingStyle(styleContext)}>
       <div className="content">

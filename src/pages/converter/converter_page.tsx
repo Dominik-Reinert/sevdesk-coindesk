@@ -2,7 +2,6 @@
 import { jsx } from "@emotion/react";
 import React from "react";
 import { bitcoinStore } from "../../store/bitcoin/bitcoin_store";
-import { useServerDataUpdate } from "../../store/use_server_data_updates";
 import { useStyleContext } from "../../style_context/use_style_context";
 import { WaitForDataFallbackPage } from "../wait_for_data_fallback_page";
 import { converterPageSuspendingStyle } from "./converter_page_style";
@@ -25,6 +24,7 @@ const ConverterPageSuspending = () => {
       <div className="content">
         {symbolsToRender.map((toRender) => (
           <ExchangeRate
+            key={toRender}
             symbol={toRender}
             btcValue={currentBtcValue}
             onChange={onChange}
