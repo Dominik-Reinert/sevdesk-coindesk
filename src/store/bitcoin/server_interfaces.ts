@@ -58,3 +58,19 @@ export declare namespace Bitcoin {
     trade_volume_usd: number;
   }
 }
+
+export declare namespace Chart {
+  export interface Value {
+    x: number;
+    y: number;
+  }
+
+  export interface RootObject {
+    status: string;
+    name: string;
+    unit: string;
+    period: string;
+    description: string;
+    values: Value[];
+  }
+}
