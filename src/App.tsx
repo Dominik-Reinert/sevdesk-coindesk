@@ -6,6 +6,7 @@ import { Background } from "./background/background";
 import { ClearStyles } from "./clear_styles/clear_styles";
 import "./i18n";
 import { Navbar } from "./navbar/navbar";
+import { ChartPage } from "./pages/charts/chart_page";
 import { ConverterPage } from "./pages/converter/converter_page";
 import { BitcoinDashboardPage } from "./pages/dashboard/bitcoin_dashboard_page";
 import { BitcoinDetailsPage } from "./pages/details/bitcoin_details_page";
@@ -25,6 +26,9 @@ function App() {
               <PageWrapper>
                 <Navbar />
                 <Switch>
+                  <Route path={Routes.chart}>
+                    <ChartPage />
+                  </Route>
                   <Route path={Routes.converter}>
                     <ConverterPage />
                   </Route>
